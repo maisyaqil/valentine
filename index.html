@@ -566,14 +566,80 @@
                 font-size: 16px;
             }
 
-            .envelope-text {
-                font-size: 24px;
+            /* Page 1 - Scrapbook */
+            .scrapbook-1 {
+                width: 95%;
+                height: 70vh;
             }
 
+            .envelope {
+                width: 55%;
+                height: 45%;
+                top: 10%;
+                left: 5%;
+            }
+
+            .envelope-text {
+                font-size: 22px;
+            }
+
+            .wax-seal {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 10%;
+                left: 25%;
+            }
+
+            .polaroid-1 {
+                width: 110px;
+                right: 5%;
+                top: 5%;
+                padding: 8px 8px 30px 8px;
+            }
+
+            .polaroid-1 img {
+                height: 90px;
+            }
+
+            .camera {
+                width: 80px;
+                height: 60px;
+                bottom: 20%;
+                right: 8%;
+            }
+
+            .camera::before {
+                width: 28px;
+                height: 28px;
+                border: 3px solid #555;
+            }
+
+            .camera::after {
+                width: 12px;
+                height: 12px;
+                top: 6px;
+                right: 8px;
+            }
+
+            .photo-strip {
+                width: 55px;
+                bottom: 8%;
+                left: 40%;
+                padding: 5px;
+            }
+
+            .photo-strip-img {
+                height: 50px;
+                margin-bottom: 4px;
+            }
+
+            /* Page 2 */
             .valentine-title {
                 font-size: 40px;
             }
 
+            /* Page 3 */
             .letter-container {
                 padding: 40px 30px;
             }
@@ -582,17 +648,158 @@
                 font-size: 16px;
             }
 
-            .photo-grid {
-                grid-template-columns: 1fr;
+            /* Page 4 - Photo Board */
+            .photo-board {
+                width: 95%;
+                padding: 20px;
+                aspect-ratio: auto;
+                min-height: 90vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
             }
 
             .sticky-note {
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
+                padding: 12px;
+                top: 15px;
+                right: 15px;
+                position: absolute;
+            }
+
+            .sticky-note::before {
+                height: 20px;
             }
 
             .sticky-text {
-                font-size: 22px;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 100%;
+                margin-top: 60px;
+                margin-bottom: 100px;
+            }
+
+            .photo-frame {
+                max-width: 280px;
+                margin: 0 auto;
+                padding: 12px 12px 35px 12px;
+            }
+
+            .photo-frame img {
+                height: 200px;
+            }
+
+            .paperclip {
+                font-size: 28px;
+                top: -12px;
+            }
+
+            .flower-accent {
+                font-size: 45px;
+                bottom: 20px;
+                left: 15px;
+            }
+
+            .final-message {
+                font-size: 28px;
+                bottom: 20px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small phones */
+            .envelope {
+                width: 60%;
+                height: 40%;
+            }
+
+            .envelope-text {
+                font-size: 18px;
+            }
+
+            .wax-seal {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .polaroid-1 {
+                width: 90px;
+            }
+
+            .polaroid-1 img {
+                height: 75px;
+            }
+
+            .camera {
+                width: 70px;
+                height: 50px;
+            }
+
+            .camera::before {
+                width: 22px;
+                height: 22px;
+            }
+
+            .photo-strip {
+                width: 45px;
+            }
+
+            .photo-strip-img {
+                height: 40px;
+            }
+
+            .valentine-title {
+                font-size: 32px;
+            }
+
+            .valentine-subtitle {
+                font-size: 18px;
+            }
+
+            .valentine-btn {
+                font-size: 16px;
+                padding: 12px 30px;
+            }
+
+            .letter-content {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .sticky-note {
+                width: 110px;
+                height: 110px;
+                top: 10px;
+                right: 10px;
+            }
+
+            .sticky-text {
+                font-size: 16px;
+            }
+
+            .photo-frame {
+                max-width: 240px;
+                padding: 10px 10px 30px 10px;
+            }
+
+            .photo-frame img {
+                height: 180px;
+            }
+
+            .final-message {
+                font-size: 24px;
+            }
+
+            .flower-accent {
+                font-size: 40px;
             }
         }
     </style>
