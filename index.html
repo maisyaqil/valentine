@@ -415,131 +415,250 @@
         /* PAGE 4 - Photo Finale */
         .page-4 {
             background: #0a0a0a;
+            padding: 30px 15px;
         }
 
         .photo-board {
             position: relative;
-            width: 90%;
+            width: 95%;
             max-width: 900px;
-            aspect-ratio: 16/11;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            min-height: 90vh;
+            background: #6b3a2a;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='4' height='4' fill='%23623526'/%3E%3Crect width='1' height='1' x='0' y='0' fill='%23724030' fill-opacity='0.4'/%3E%3Crect width='1' height='1' x='2' y='2' fill='%23543020' fill-opacity='0.3'/%3E%3C/svg%3E");
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
         }
 
-        .sticky-note {
-            position: absolute;
-            top: 8%;
-            right: 8%;
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transform: rotate(5deg);
-            font-family: 'Dancing Script', cursive;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .sticky-note::before {
+        /* Border decorations - plaid strips */
+        .photo-board::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: rgba(0, 0, 0, 0.05);
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 18px solid transparent;
+            border-image: repeating-linear-gradient(
+                45deg,
+                #8b4513 0px, #8b4513 8px,
+                #a0522d 8px, #a0522d 16px,
+                #6b3a2a 16px, #6b3a2a 24px
+            ) 18;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .sticky-text {
-            font-size: 28px;
-            color: #333;
-            text-align: center;
-            line-height: 1.4;
-            margin-top: 10px;
+        /* Ribbon bow at the top */
+        .ribbon-bow {
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            font-size: 70px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
         }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 500px;
-        }
-
-        .photo-frame {
+        /* Scattered polaroid photos */
+        .pol {
+            position: absolute;
             background: white;
-            padding: 15px 15px 45px 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            transform: rotate(-3deg);
-            transition: transform 0.3s ease;
-        }
-
-        .photo-frame:nth-child(2) {
-            transform: rotate(4deg);
-        }
-
-        .photo-frame:nth-child(3) {
-            transform: rotate(2deg);
-        }
-
-        .photo-frame:nth-child(4) {
-            transform: rotate(-4deg);
-        }
-
-        .photo-frame:hover {
-            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.45);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             z-index: 10;
         }
 
-        .photo-frame img {
+        .pol img, .pol .pol-img {
             width: 100%;
-            height: 180px;
             object-fit: cover;
-            background: #ddd;
+            background: #ccc;
         }
 
-        .paperclip {
+        .pol .pol-label {
+            font-family: 'Dancing Script', cursive;
+            color: #444;
+            text-align: center;
+            padding-bottom: 6px;
+            font-size: 14px;
+        }
+
+        /* Individual polaroid placements */
+        .pol-1 {
+            top: 8%;
+            left: 3%;
+            width: 38%;
+            padding: 10px 10px 38px 10px;
+            transform: rotate(-4deg);
+        }
+        .pol-1 .pol-img { height: 180px; }
+
+        .pol-2 {
+            top: 5%;
+            right: 3%;
+            width: 34%;
+            padding: 8px 8px 32px 8px;
+            transform: rotate(5deg);
+        }
+        .pol-2 .pol-img { height: 150px; }
+
+        .pol-3 {
+            top: 42%;
+            left: 5%;
+            width: 32%;
+            padding: 8px 8px 32px 8px;
+            transform: rotate(3deg);
+        }
+        .pol-3 .pol-img { height: 140px; }
+
+        .pol-4 {
+            top: 38%;
+            right: 4%;
+            width: 36%;
+            padding: 9px 9px 35px 9px;
+            transform: rotate(-3deg);
+        }
+        .pol-4 .pol-img { height: 160px; }
+
+        .pol-5 {
+            bottom: 18%;
+            left: 30%;
+            width: 35%;
+            padding: 8px 8px 32px 8px;
+            transform: rotate(2deg);
+            z-index: 12;
+        }
+        .pol-5 .pol-img { height: 150px; }
+
+        /* Handwritten quote labels */
+        .quote-label {
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
+            font-family: 'Dancing Script', cursive;
+            color: #f5e6d3;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        .quote-1 {
+            top: 12%;
+            left: 42%;
+            font-size: 18px;
+            transform: rotate(-8deg);
+            color: #f5e6d3;
+        }
+
+        .quote-2 {
+            top: 35%;
+            left: 38%;
+            font-size: 16px;
+            transform: rotate(3deg);
+            color: #f5e6d3;
+        }
+
+        .quote-3 {
+            bottom: 30%;
+            left: 3%;
+            font-size: 17px;
+            transform: rotate(-5deg);
+            color: #f5e6d3;
+        }
+
+        .quote-4 {
+            bottom: 12%;
+            right: 3%;
+            font-size: 20px;
+            transform: rotate(4deg);
+            color: #f5e6d3;
+        }
+
+        .quote-5 {
+            top: 55%;
+            right: 5%;
+            font-size: 15px;
+            transform: rotate(-3deg);
+            color: #f5e6d3;
+        }
+
+        /* Rose decorations */
+        .rose {
+            position: absolute;
+            z-index: 8;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+        }
+
+        .rose-1 {
+            bottom: 5%;
+            left: 5%;
+            font-size: 65px;
+            transform: rotate(15deg);
+        }
+
+        .rose-2 {
+            bottom: 8%;
+            right: 8%;
+            font-size: 50px;
+            transform: rotate(-10deg);
+        }
+
+        .rose-3 {
+            top: 30%;
+            left: 38%;
             font-size: 40px;
+            transform: rotate(20deg);
+        }
+
+        /* Heart decorations */
+        .heart-deco {
+            position: absolute;
+            z-index: 6;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .heart-1 {
+            bottom: 25%;
+            left: 18%;
+            font-size: 45px;
+        }
+
+        .heart-2 {
+            top: 25%;
+            right: 38%;
+            font-size: 30px;
+        }
+
+        /* Plaid patch decorations */
+        .plaid-patch {
+            position: absolute;
+            z-index: 3;
             opacity: 0.6;
         }
 
-        .flower-accent {
-            position: absolute;
+        .plaid-1 {
             bottom: 10%;
-            left: 5%;
-            font-size: 80px;
-            opacity: 0.7;
-            animation: rotateFlower 10s linear infinite;
+            right: 25%;
+            width: 80px;
+            height: 80px;
+            background: repeating-linear-gradient(
+                45deg,
+                #8b4513 0px, #8b4513 5px,
+                transparent 5px, transparent 10px
+            );
+            transform: rotate(12deg);
         }
 
-        @keyframes rotateFlower {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .final-message {
-            position: absolute;
-            bottom: 12%;
-            right: 5%;
-            font-family: 'Dancing Script', cursive;
-            font-size: 48px;
-            color: #d63384;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            animation: glowText 2s ease-in-out infinite;
-        }
-
-        @keyframes glowText {
-            0%, 100% { text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2); }
-            50% { text-shadow: 2px 2px 20px rgba(214, 51, 132, 0.6); }
+        .plaid-2 {
+            top: 60%;
+            left: 2%;
+            width: 60px;
+            height: 60px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #a0522d 0px, #a0522d 4px,
+                transparent 4px, transparent 8px
+            );
+            transform: rotate(-8deg);
         }
 
         /* Confetti */
@@ -558,7 +677,7 @@
             }
         }
 
-        /* Responsive */
+        /* ============= RESPONSIVE ============= */
         @media (max-width: 768px) {
             .nav-button {
                 bottom: 20px;
@@ -570,69 +689,70 @@
             /* Page 1 - Scrapbook */
             .scrapbook-1 {
                 width: 95%;
-                height: 70vh;
+                aspect-ratio: auto;
+                height: 80vh;
             }
 
             .envelope {
-                width: 55%;
-                height: 45%;
-                top: 10%;
-                left: 5%;
+                width: 65%;
+                height: 42%;
+                top: 5%;
+                left: 2%;
             }
 
             .envelope-text {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             .wax-seal {
-                width: 50px;
-                height: 50px;
-                font-size: 25px;
-                bottom: 10%;
-                left: 25%;
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+                bottom: 8%;
+                left: 30%;
             }
 
             .polaroid-1 {
-                width: 110px;
-                right: 5%;
-                top: 5%;
-                padding: 8px 8px 30px 8px;
+                width: 52%;
+                right: 2%;
+                top: 2%;
+                padding: 10px 10px 35px 10px;
             }
 
             .polaroid-1 img {
-                height: 90px;
+                height: 140px;
             }
 
             .camera {
-                width: 80px;
-                height: 60px;
-                bottom: 20%;
-                right: 8%;
+                width: 100px;
+                height: 72px;
+                bottom: 12%;
+                right: 5%;
             }
 
             .camera::before {
-                width: 28px;
-                height: 28px;
+                width: 32px;
+                height: 32px;
                 border: 3px solid #555;
             }
 
             .camera::after {
-                width: 12px;
-                height: 12px;
-                top: 6px;
-                right: 8px;
+                width: 14px;
+                height: 14px;
+                top: 7px;
+                right: 10px;
             }
 
             .photo-strip {
-                width: 55px;
-                bottom: 8%;
-                left: 40%;
-                padding: 5px;
+                width: 42%;
+                bottom: 2%;
+                left: 30%;
+                padding: 8px;
             }
 
             .photo-strip-img {
-                height: 50px;
-                margin-bottom: 4px;
+                height: 75px;
+                margin-bottom: 5px;
             }
 
             /* Page 2 */
@@ -649,73 +769,69 @@
                 font-size: 16px;
             }
 
-            /* Page 4 - Photo Board */
+            /* Page 4 - Collage Board */
             .photo-board {
-                width: 95%;
-                padding: 20px;
-                aspect-ratio: auto;
-                min-height: 90vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
+                min-height: 95vh;
+                padding: 25px 15px;
             }
 
-            .sticky-note {
-                width: 130px;
-                height: 130px;
-                padding: 12px;
-                top: 15px;
-                right: 15px;
-                position: absolute;
+            .ribbon-bow {
+                font-size: 50px;
             }
 
-            .sticky-note::before {
-                height: 20px;
+            .pol-1 {
+                top: 6%;
+                left: 2%;
+                width: 45%;
             }
+            .pol-1 .pol-img { height: 130px; }
 
-            .sticky-text {
-                font-size: 18px;
-                margin-top: 5px;
+            .pol-2 {
+                top: 4%;
+                right: 2%;
+                width: 42%;
             }
+            .pol-2 .pol-img { height: 120px; }
 
-            .photo-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 100%;
-                margin-top: 60px;
-                margin-bottom: 100px;
+            .pol-3 {
+                top: 40%;
+                left: 3%;
+                width: 42%;
             }
+            .pol-3 .pol-img { height: 120px; }
 
-            .photo-frame {
-                max-width: 280px;
-                margin: 0 auto;
-                padding: 12px 12px 35px 12px;
+            .pol-4 {
+                top: 37%;
+                right: 2%;
+                width: 42%;
             }
+            .pol-4 .pol-img { height: 130px; }
 
-            .photo-frame img {
-                height: 200px;
+            .pol-5 {
+                bottom: 14%;
+                left: 28%;
+                width: 44%;
             }
+            .pol-5 .pol-img { height: 120px; }
 
-            .paperclip {
-                font-size: 28px;
-                top: -12px;
-            }
+            .quote-1 { font-size: 14px; top: 10%; left: 48%; }
+            .quote-2 { font-size: 13px; top: 34%; left: 42%; }
+            .quote-3 { font-size: 14px; bottom: 28%; left: 2%; }
+            .quote-4 { font-size: 16px; bottom: 8%; right: 2%; }
+            .quote-5 { font-size: 12px; top: 52%; right: 3%; }
 
-            .flower-accent {
-                font-size: 45px;
-                bottom: 20px;
-                left: 15px;
-            }
+            .rose-1 { font-size: 45px; }
+            .rose-2 { font-size: 35px; }
+            .rose-3 { font-size: 28px; }
 
-            .final-message {
-                font-size: 28px;
-                bottom: 20px;
-                right: 15px;
-            }
+            .heart-1 { font-size: 32px; }
+            .heart-2 { font-size: 22px; }
+
+            .plaid-1 { width: 55px; height: 55px; }
+            .plaid-2 { width: 40px; height: 40px; }
         }
 
         @media (max-width: 480px) {
-            /* Extra small phones */
             .envelope {
                 width: 60%;
                 height: 40%;
@@ -732,11 +848,11 @@
             }
 
             .polaroid-1 {
-                width: 90px;
+                width: 50%;
             }
 
             .polaroid-1 img {
-                height: 75px;
+                height: 115px;
             }
 
             .camera {
@@ -750,11 +866,11 @@
             }
 
             .photo-strip {
-                width: 45px;
+                width: 38%;
             }
 
             .photo-strip-img {
-                height: 40px;
+                height: 60px;
             }
 
             .valentine-title {
@@ -775,33 +891,22 @@
                 line-height: 1.7;
             }
 
-            .sticky-note {
-                width: 110px;
-                height: 110px;
-                top: 10px;
-                right: 10px;
-            }
+            /* Page 4 extra small */
+            .pol-1 .pol-img { height: 110px; }
+            .pol-2 .pol-img { height: 100px; }
+            .pol-3 .pol-img { height: 100px; }
+            .pol-4 .pol-img { height: 110px; }
+            .pol-5 .pol-img { height: 100px; }
 
-            .sticky-text {
-                font-size: 16px;
-            }
+            .quote-1 { font-size: 12px; }
+            .quote-2 { font-size: 11px; }
+            .quote-3 { font-size: 12px; }
+            .quote-4 { font-size: 14px; }
+            .quote-5 { font-size: 11px; }
 
-            .photo-frame {
-                max-width: 240px;
-                padding: 10px 10px 30px 10px;
-            }
-
-            .photo-frame img {
-                height: 180px;
-            }
-
-            .final-message {
-                font-size: 24px;
-            }
-
-            .flower-accent {
-                font-size: 40px;
-            }
+            .rose-1 { font-size: 38px; }
+            .rose-2 { font-size: 28px; }
+            .rose-3 { font-size: 22px; }
         }
     </style>
 </head>
@@ -867,32 +972,57 @@ Forever and always,</div>
         <button class="nav-button" onclick="nextPage(3)">Next →</button>
     </div>
 
-    <!-- PAGE 4: Photo Finale -->
+    <!-- PAGE 4: Photo Collage Finale -->
     <div class="page page-4 hidden" id="page4">
         <div class="photo-board">
-            <div class="sticky-note">
-                <div class="sticky-text">Happy<br>Valentines Day<br>sayang! ✨</div>
+            <!-- Ribbon bow at top -->
+            <div class="ribbon-bow">🎀</div>
+
+            <!-- Scattered polaroid photos -->
+            <div class="pol pol-1">
+                <img src="" alt="Photo 1" class="pol-img">
+                <div class="pol-label">us 💕</div>
             </div>
-            <div class="photo-grid">
-                <div class="photo-frame">
-                    <div class="paperclip">📎</div>
-                    <img src="" alt="Photo 1 - Add your photo">
-                </div>
-                <div class="photo-frame">
-                    <div class="paperclip">📎</div>
-                    <img src="" alt="Photo 2 - Add your photo">
-                </div>
-                <div class="photo-frame">
-                    <div class="paperclip">📎</div>
-                    <img src="" alt="Photo 3 - Add your photo">
-                </div>
-                <div class="photo-frame">
-                    <div class="paperclip">📎</div>
-                    <img src="" alt="Photo 4 - Add your photo">
-                </div>
+
+            <div class="pol pol-2">
+                <img src="" alt="Photo 2" class="pol-img">
+                <div class="pol-label">my favorite</div>
             </div>
-            <div class="flower-accent">🌸</div>
-            <div class="final-message">I Love You 💕</div>
+
+            <div class="pol pol-3">
+                <img src="" alt="Photo 3" class="pol-img">
+                <div class="pol-label">always ♡</div>
+            </div>
+
+            <div class="pol pol-4">
+                <img src="" alt="Photo 4" class="pol-img">
+                <div class="pol-label">forever</div>
+            </div>
+
+            <div class="pol pol-5">
+                <img src="" alt="Photo 5" class="pol-img">
+                <div class="pol-label">my world</div>
+            </div>
+
+            <!-- Handwritten quotes scattered around -->
+            <div class="quote-label quote-1">forever in love<br>with you</div>
+            <div class="quote-label quote-2">enjoy my love</div>
+            <div class="quote-label quote-3">so pretty<br>baby</div>
+            <div class="quote-label quote-4">I Love You 💕</div>
+            <div class="quote-label quote-5">you are<br>my everything</div>
+
+            <!-- Rose decorations -->
+            <div class="rose rose-1">🌹</div>
+            <div class="rose rose-2">🌸</div>
+            <div class="rose rose-3">🌺</div>
+
+            <!-- Heart decorations -->
+            <div class="heart-deco heart-1">❤️</div>
+            <div class="heart-deco heart-2">💗</div>
+
+            <!-- Plaid patches -->
+            <div class="plaid-patch plaid-1"></div>
+            <div class="plaid-patch plaid-2"></div>
         </div>
     </div>
 
