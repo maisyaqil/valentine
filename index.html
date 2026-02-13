@@ -64,8 +64,7 @@
 
         /* PAGE 1 - Opening */
         .page-1 {
-            background: url('your-background-image.jpg') center/cover no-repeat;
-            background-attachment: fixed;
+            background: #0a0a0a;
         }
 
         .scrapbook-1 {
@@ -146,7 +145,7 @@
         .polaroid-1 img {
             width: 100%;
             height: 320px;
-            object-fit: contain;
+            object-fit: cover;
             background: #ddd;
             display: flex;
             align-items: center;
@@ -416,18 +415,18 @@
         /* PAGE 4 - Photo Finale */
         .page-4 {
             background: #0a0a0a;
-            padding: 0;
+            padding: 30px 15px;
         }
 
         .photo-board {
             position: relative;
-            width: 100%;
-            max-width: 100%;
-            min-height: 100vh;
+            width: 95%;
+            max-width: 900px;
+            min-height: 90vh;
             background: #6b3a2a;
             background-image: 
                 url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='4' height='4' fill='%23623526'/%3E%3Crect width='1' height='1' x='0' y='0' fill='%23724030' fill-opacity='0.4'/%3E%3Crect width='1' height='1' x='2' y='2' fill='%23543020' fill-opacity='0.3'/%3E%3C/svg%3E");
-            border-radius: 0;
+            border-radius: 12px;
             padding: 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
             overflow: hidden;
@@ -473,7 +472,7 @@
 
         .pol img, .pol .pol-img {
             width: 100%;
-            object-fit: contain;
+            object-fit: cover;
             background: #e8e8e8;
         }
 
@@ -772,7 +771,7 @@
 
             /* Page 4 - Collage Board */
             .photo-board {
-                min-height: 100vh;
+                min-height: 95vh;
                 padding: 25px 15px;
             }
 
@@ -924,9 +923,9 @@
             </div>
             <div class="camera"></div>
             <div class="photo-strip">
-                <img src="her9.jpeg" alt="Strip photo 1" class="photo-strip-img">
-                <img src="her11.jpeg" alt="Strip photo 2" class="photo-strip-img">
-                <img src="her10.jpeg" alt="Strip photo 3" class="photo-strip-img">
+                <img src="" alt="Strip photo 1" class="photo-strip-img">
+                <img src="" alt="Strip photo 2" class="photo-strip-img">
+                <img src="" alt="Strip photo 3" class="photo-strip-img">
             </div>
         </div>
         <button class="nav-button" onclick="nextPage(1)">Open ✉️</button>
